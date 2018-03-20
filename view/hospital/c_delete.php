@@ -10,6 +10,6 @@
 	<input type="hidden" name="id" value="<?= $id ?>">
 	<input type="text" name="firstname" value="<?= $firstname ?>">
 	<input type="text" name="lastname" value="<?= $lastname ?>">
-	<input type="checkbox" name="checkbox">
-	<input type="submit" name="submit" value="Verwijderen" required>
+	<input type="checkbox" name="checkbox" required>
+	<input type="submit" name="submit" value="Verwijderen" >
 </form>

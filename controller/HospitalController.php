@@ -19,15 +19,24 @@
 	}
 
 	function updateClient(){
-		
+		if(isset($_POST['checkbox'])){
+			if($_SERVER['REQUEST_METHOD'] == 'POST'){
+				$data = array(
+					'client_id' => $_POST['id'],
+					'firstname' => $_POST['firstname'],
+					'lastname' => $_POST['lastname']
+				);
+				updateSave($data);
+				header("Location: index");
+				exit;
+			}
+		}
 		render("hospital/c_update", array('client' => getClient($_GET['id'])));
 	}
 
 	function deleteClient(){
-
 		if(isset($_POST['checkbox'])){
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){
-				var_dump($_POST);
 				removeClient($_POST['id']);
 				header("Location: index");
 				exit;

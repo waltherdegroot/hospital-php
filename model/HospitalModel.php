@@ -51,4 +51,22 @@
 
 		$query->execute();
 	}
+
+	//Update een client van uit het database en voegt de nieuwe waarden in.
+	function updateSave($data){
+		$db = openDatabaseConnection();
+		
+		var_dump($data);
+
+		$query = $db->prepare("UPDATE clients SET client_firstname = :firstname, client_lastname = :lastname WHERE client_id = :id");
+		$query->bindParam(':id', $id);
+		$query->bindParam(':firstname', $firstname);
+		$query->bindParam(':lastname', $lastname);
+
+		$id = $data['client_id'];
+		$firstname = $data['firstname'];
+		$lastname = $data['lastname'];
+
+		$query->execute();
+	}
 ?>
